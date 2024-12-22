@@ -3,11 +3,32 @@ services:
   searcharr:
     container_name: searcharr
     image: toddrob/searcharr:latest
+
+    environment:
+      - TZ=America/New_York
+      - SEARCHARR_PASSWORD=
+      - SEARCHARR_ADMIN_PASSWORD=
+
+      - TGRAM_TOKEN=
+      
+      - SONARR_ENABLED=True
+      - SONARR_URL=
+      - SONARR_API_KEY=
+      - SONARR_QUALITY_PROFILE_ID=HD - 720p/1080p
+      
+      - RADARR_ENABLED=True
+      - RADARR_URL=
+      - RADARR_API_KEY=
+      - RADARR_QUALITY_PROFILE_ID=HD - 720p/1080p
+  
+      - READARR_ENABLED=True
+      - READARR_URL=
+      - READARR_API_KEY=
+      - READARR_QUALITY_PROFILE_ID=eBook,Spoken
+    
     volumes:
       - ./data:/app/data
       - ./logs:/app/logs
-      - ./settings.py:/app/settings.py
-    environment:
-      - TZ=America/New_York
+
     restart: unless-stopped
-    network_mode: host
+
